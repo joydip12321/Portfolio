@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joydip Das-Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="assets/Profile.png"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6Ff7kVZfhfN7YBxaHOmh9dV1s2ZbYdAczHJ4M+w9ZCgv9nYv3OmqXWIMtOf3ME3ZpyQw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body class="bg-gray-900 text-white">
+
+    <!-- Navbar -->
+    <header class="flex justify-between items-center p-6 shadow-md bg-gray-800">
+        <h1 class="text-3xl font-bold text-pink-500">Joydip Das</h1>
+        <nav>
+            <a href="#home" class="mx-4 text-lg hover:text-pink-400">Home</a>
+            <a href="#features" class="mx-4 text-lg hover:text-pink-400">Features</a>
+            <a href="#projects" class="mx-4 text-lg hover:text-pink-400">Projects</a>
+            <a href="#skills" class="mx-4 text-lg hover:text-pink-400">Skills</a>
+            <a href="#contact" class="mx-4 text-lg hover:text-pink-400">Contact</a>
+        </nav>
+        <a href="https://drive.google.com/file/d/1X1OBqxszkTpFEb65InkCeiCCxmfHsub8/view?usp=drive_link"
+            class="bg-pink-500 px-4 py-2 rounded-full">Resume</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="text-center py-20 relative bg-dark text-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <!-- Left Section -->
+            <div class="md:w-1/2 text-left">
+                <h2 class="text-5xl font-bold mt-4">
+                    Hi, I'm <span class="text-pink-500">Joydip Das</span>
+                </h2>
+                <p class="text-xl font-semibold mt-2">
+                    a <span id="changingText" class="text-pink-400"></span>
+                </p>
+
+                <p class="mt-4 max-w-xl text-lg typing-text" id="typingBio"></p>
+
+                <!-- Social Media Links -->
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class=" hover:text-pink-500 text-2xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-2xl">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-2xl">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Section - Profile Image -->
+            <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
+                <img src="assets/Profile.png" alt="Profile" class="rounded-full w-72 h-72 shadow-lg border-4 border-pink-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Effects -->
+    <style>
+        .typing-text {
+            font-size: 18px;
+            white-space: normal;
+            /* Allows text to wrap */
+            overflow: visible;
+            /* Prevents text from being cut off */
+            border-right: 2px solid pink;
+            display: inline-block;
+            max-width: 100%;
+            /* Ensures text is fully visible */
+        }
+
+        .bg-dark {
+            background-color: #121212;
+        }
+    </style>
+
+    <!-- JavaScript for Rotating Text and Typing Effect -->
+    <script>
+        // Rotating text effect
+        const texts = [
+            "Competitive Programmer.",
+            "Full Stack Web Developer.",
+            "CSE Graduate, JUST"
+        ];
+        let textIndex = 0;
+        let changingText = document.getElementById("changingText");
+
+        function changeText() {
+            changingText.textContent = texts[textIndex];
+            textIndex = (textIndex + 1) % texts.length;
+        }
+
+        setInterval(changeText, 3000);
+
+        // Typing Effect for Bio
+        const bioText = "I am Joydip Das, a dedicated software developer with a strong background in web development, focusing on both frontend and backend technologies with experience in React, and Django REST Framework, I am passionate about creating responsive, user-friendly websites and applications.";
+        const typingBio = document.getElementById("typingBio");
+
+        let bioIndex = 0;
+
+        function typeBio() {
+            typingBio.textContent = ""; // Reset text before starting
+            bioIndex = 0;
+            typeCharacter();
+        }
+
+        function typeCharacter() {
+            if (bioIndex < bioText.length) {
+                typingBio.textContent += bioText.charAt(bioIndex);
+                bioIndex++;
+                setTimeout(typeCharacter, 50);
+            } else {
+                typingBio.style.borderRight = "none"; // Remove blinking cursor after completion
+            }
+        }
+
+        setTimeout(typeBio, 1000); // Start typing after a delay
+    </script>
+
+
+    <!-- Features Section -->
+    <section id="features" class="text-center py-16 bg-gray-900 text-white">
+        <h2 class="text-4xl font-bold text-pink-400 mb-10" data-aos="zoom-in">What I Do</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 mt-10">
+            <!-- Competitive Programming -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-laptop-code text-5xl text-pink-500"></i>
+                <h3 class="text-2xl font-semibold text-pink-500 mt-4">Competitive Programming</h3>
+                <p class="mt-2 text-gray-300">
+                    Solved 2000+ coding problems on platforms like Codeforces, Leetcode, and CodeChef, sharpening
+                    algorithmic and problem-solving skills.
+                    Participated in on-site programming contests, achieving top ranks in university and national
+                    competitions.
+                </p>
+            </div>
+            <!-- Web Development -->
+            <div class="feature-card" data-aos="fade-up">
+                <i class="fas fa-code text-5xl text-pink-500"></i>
+                <h3 class="text-2xl font-semibold text-pink-500 mt-4">Web Development</h3>
+                <p class="mt-2 text-gray-300">
+                    Developing high-performance, responsive web applications using modern technologies like React,
+                    Django, and Django REST Framework.
+                    Built 15+ full-stack projects with real-world use cases.
+                </p>
+            </div>
+            <!-- Database Handling -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="1000">
+                <i class="fas fa-database text-5xl text-pink-500"></i>
+                <h3 class="text-2xl font-semibold text-pink-500 mt-4">Database Handling</h3>
+                <p class="mt-2 text-gray-300">
+                    Proficient in SQL (MySQL, PostgreSQL).
+                    Experienced in database normalization, stored procedures, triggers, and transactions.
+                    Skilled in join operations, indexing, query optimization, and database security.
+                </p>
+            </div>
+            <!-- Team Management -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-users-cog text-5xl text-pink-500"></i>
+                <h3 class="text-2xl font-semibold text-pink-500 mt-4">Team Management</h3>
+                <p class="mt-2 text-gray-300">
+                    Led cross-functional software development teams in startups, and company projects, ensuring
+                    efficient collaboration, code quality, and on-time delivery.
+                    Experience in Agile methodologies, conducting stand-up meetings, sprint planning, and
+                    retrospectives.
+                    Successfully managed remote & in-office teams, ensuring team productivity, effective communication,
+                    and a growth mindset.
+                </p>
+            </div>
+
+
+
+
+            <!-- Cybersecurity -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                <i class="fas fa-shield-alt text-5xl text-pink-500"></i>
+                <h3 class="text-2xl font-semibold text-pink-500 mt-4">Cybersecurity</h3>
+                <p class="mt-2 text-gray-300">
+                    Basic understanding of network security concepts, authentication mechanisms, and encryption
+                    techniques.
+                    Familiar with penetration testing fundamentals, common vulnerabilities , and basic ethical hacking
+                    techniques.
+                    Learning about Firewalls, cyber threats, malware analysis for security monitoring and analysis.
+                </p>
+            </div>
+
+
+            <!-- Machine Learning -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
+                <i class="fas fa-brain text-5xl text-pink-500"></i>
+                <h3 class="text-2xl font-semibold text-pink-500 mt-4">Machine Learning</h3>
+                <p class="mt-2 text-gray-300">
+                    Basic understanding of machine learning algorithms, including supervised and unsupervised learning.
+                    Familiar with inear regression, decision trees, random forests, and neural networks etc.
+                    Hands-on experience in building small-scale ML models for data prediction, image classification, and
+                    NLP tasks using Python, Scikit-Learn, and PyTorch.
+                </p>
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <!-- CSS Effects -->
+    <style>
+        .feature-card {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(255, 105, 180, 0.4);
+        }
+    </style>
+
+
+
+
+    <section id="projects" class="text-center py-16 bg-gray-900 text-white">
+        <h2 class="text-4xl font-bold text-pink-400 mb-10" data-aos="flip-left">My Projects</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-10">
+            <!-- Project 4: Circuit House -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="600">
+                <img src="assets/chouse.png" alt="Circuit House" class="project-image">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-white">Circuit House</h3>
+                    <p class="text-sm mt-2 text-gray-300">An online portal for managing room reservations and dining services in Circuit Houses.</p>
+                    <button class="details-btn" onclick="toggleDetails('project4')">Project Details</button>
+                    <div id="project4" class="project-details hidden">
+                        <p><strong>Description:</strong> The Circuit House project is designed to streamline the booking
+                            process for government and private sector employees. It allows users to reserve rooms for
+                            stays, order meals, check room availability, and manage booking confirmations or
+                            cancellations.</p>
+
+
+                        <p><strong>Features:</strong></p>
+                        <ul class="list-disc text-left pl-6 text-sm">
+                            <li>Room booking reservations with date selection</li>
+                            <li>Real-time room availability checking</li>
+                            <li>Meal ordering system for dining requests</li>
+                            <li>Booking confirmation and cancellation options</li>
+                            <li>Accommodation for both government and private sector employees</li>
+                            <li>User-friendly interface for managing details of Jashore</li>
+                        </ul>
+
+                        <p><strong>Technology:</strong> Django REST Framework | React | PostgreSQL</p>
+
+                        <div class="mt-4">
+                            <a href="https://chjashore.online/" target="_blank"
+                                class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition duration-300">Live
+                                Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      <!-- Project 3: New Amin (Inventory Type) -->
+<div class="project-card" data-aos="zoom-in" data-aos-delay="400">
+    <img src="assets/newamin.png" alt="New Amin" class="project-image">
+    <div class="p-4">
+        <h3 class="text-xl font-semibold text-white">New Amin (Inventory)</h3>
+        <p class="text-sm mt-2 text-gray-300">
+            A system designed for managing the inventory of various types of products, including purchase and sale tracking and stock management.
+        </p>
+        <button class="details-btn mt-3" onclick="toggleDetails('project3')">Project Details</button>
+        <div id="project3" class="project-details hidden mt-4">
+            <p><strong>Description:</strong> New Amin is a powerful inventory management system that facilitates the tracking of product movement, categorization by inventory type, and the management of stock levels. This system is ideal for businesses needing efficient tools to monitor and manage their inventory across multiple product types.</p>
+
+            <p class="mt-3"><strong>Types of Users:</strong></p>
+            <ul class="list-disc text-left pl-6 text-sm">
+                <li><strong>Admin:</strong> Full access to the system. Admins can manage users, products, and inventory types, and have access to purchase and sale records.</li>
+                <li><strong>Employee:</strong> Can update stock levels, record purchases and sales, and manage inventory based on the manager’s authorization.</li>
+            </ul>
+
+            <p class="mt-3"><strong>Technology:</strong> Django REST Framework | React | PostgreSQL</p>
+
+            <div class="mt-4 flex flex-wrap gap-4">
+                <a href="https://ajoydutta.com/" target="_blank"
+                    class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition duration-300">
+                    Live Link
+                </a>
+                <a href="https://github.com/joydip12321/New-Amin-frontend/" target="_blank"
+                    class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-300">
+                    GitHub (Client Side)
+                </a>
+                <a href="https://github.com/joydip12321/New-Amin-backend" target="_blank"
+                    class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-300">
+                    GitHub (Server Side)
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Project 1: TSC Management System -->
+            <div class="project-card" data-aos="zoom-in">
+                <img src="assets/tsc.png" alt="TSC Management System" class="project-image">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-white">TSC Management System</h3>
+                    <p class="text-sm mt-2 text-gray-300">A comprehensive management system for the Teacher-Student
+                        Centre.</p>
+                    <button class="details-btn" onclick="toggleDetails('project1')">Project Details</button>
+                    <div id="project1" class="project-details hidden">
+                        <p><strong>Description:</strong> A system for managing students, teachers, designed to
+                            streamline the operations of the Teacher-Student Centre (TSC).</p>
+
+                        <p><strong>Types of Users:</strong></p>
+                        <ul class="list-disc text-left pl-6 text-sm">
+                            <li><strong>Teacher:</strong> Teachers can access general information, ordering food, view
+                                notices, and book rooms </li>
+                            <li><strong>Student:</strong> Students can view notices, and book rooms for stay. They can
+                                also order food and participate in various clubs or societies offered within the TSC.
+                            </li>
+                            <li><strong>Guest:</strong> Guests can access general information, view notices, and book
+                                rooms for stay by referal.</li>
+                            <li><strong>Admin:</strong> Admins have full access to the system. They can manage user
+                                accounts, approve bookings, managing foods and oversee all activities within the TSC.
+                            </li>
+                        </ul>
+
+
+
+                        <p><strong>Technology:</strong> Django | TailwindCSS | JavaScript | PostgreSQL</p>
+
+                        <div class="mt-4">
+                            <a href="https://tsc-8kp9.onrender.com/" target="_blank"
+                                class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition duration-300">Live
+                                Link</a>
+                            <a href="https://github.com/joydip12321/TSC" target="_blank"
+                                class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 ml-4 transition duration-300">GitHub
+                                Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Project 2: E-Commerce Site -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <img src="assets/ecommerce.png" alt="E-Commerce Site" class="project-image">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-white">E-Commerce Site</h3>
+                    <p class="text-sm mt-2 text-gray-300">An online store for buying and selling products.</p>
+                    <button class="details-btn" onclick="toggleDetails('project2')">Project Details</button>
+                    <div id="project2" class="project-details hidden">
+                        <p><strong>Description:</strong> This is a fully functional e-commerce platform that allows
+                            users to buy and sell products online. The system features product listings, a shopping
+                            cart, secure checkout with integrated payments, and order management.</p>
+
+                        <p><strong>Types of Users:</strong></p>
+                        <ul class="list-disc text-left pl-6 text-sm">
+                            <li><strong>Customer:</strong> Customers can browse products, add them to their shopping
+                                cart, and proceed to checkout. They can also view their order history.</li>
+                            <li><strong>Admin:</strong> Admin users have full access to manage products, view orders,
+                                and handle user accounts. They can add, edit, or remove products and approve or cancel
+                                orders.</li>
+                        </ul>
+
+
+                        <p><strong>Technology:</strong> Django | TailwindCSS | JavaScript | PostgreSQL
+                        </p>
+
+                        <div class="mt-4">
+                            <a href="https://e-commerce-dzxv.onrender.com/" target="_blank"
+                                class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition duration-300">Live
+                                Link</a>
+                            <a href="https://github.com/joydip12321/E-Commerce-" target="_blank"
+                                class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 ml-4 transition duration-300">GitHub
+                                Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Project 5: Sharif Stationary -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="800">
+                <img src="assets/ss.png" alt="Sharif Stationary" class="project-image">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-white">Sharif Stationary</h3>
+                    <p class="text-sm mt-2 text-gray-300">An online stationery store providing products for educational
+                        and office purposes.</p>
+                    <button class="details-btn" onclick="toggleDetails('project5')">Project Details</button>
+                    <div id="project5" class="project-details hidden">
+                        <p><strong>Description:</strong> Sharif Stationary is an online store designed for browsing and
+                            purchasing a wide range of stationery items. Users can search, filter, and add items.</p>
+
+                        <p><strong>Features:</strong></p>
+                        <ul class="list-disc text-left pl-6 text-sm">
+                            <li>Product catalog with easy search and filter options</li>
+                            <li>Order history and status tracking</li>
+                            <li>Admin panel for managing products and orders</li>
+                            <li>User-friendly interface with a smooth checkout process</li>
+                            <li>Daily, Weekly, Monthly and yearly profit report</li>
+
+                        </ul>
+
+                        <p><strong>Technology:</strong> Django REST Framework | React | PostgreSQL</p>
+
+                        <div class="mt-4">
+                            <a href="https://sharifstationary.shop/" target="_blank"
+                                class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition duration-300">Live
+                                Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Additional Projects can follow the same structure... -->
+        </div>
+    </section>
+
+    <!-- CSS Styles -->
+    <style>
+        .project-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(255, 105, 180, 0.4);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .details-btn {
+            display: block;
+            margin-top: 10px;
+            color: #ff69b4;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .details-btn:hover {
+            color: #ff85c0;
+        }
+
+        .project-details {
+            background: #292929;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .project-card .bg-pink-500 {
+            background-color: #FF69B4;
+        }
+
+        .project-card .bg-gray-700 {
+            background-color: #2D2D2D;
+        }
+    </style>
+
+    <!-- JavaScript for Toggle -->
+    <script>
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            details.classList.toggle("hidden");
+        }
+    </script>
+
+
+
+
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="text-center py-16">
+        <div class="container mx-auto px-6">
+
+            <!-- Skills Title -->
+            <div class="text-center mb-12">
+
+                <h2 class="text-4xl font-bold text-pink-400 mb-10" data-aos="flip-left">Skills</h2>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex justify-center gap-4 border-b border-gray-700 mb-10">
+                <button onclick="showTab('skills-tab', event)"
+                    class="tab-link px-6 py-2 border-b-2 border-red-500 font-semibold">Professional Skills</button>
+                <button onclick="showTab('education-tab', event)"
+                    class="tab-link px-6 py-2 hover:text-gray-400">Education</button>
+                <button onclick="showTab('experience-tab', event)"
+                    class="tab-link px-6 py-2 hover:text-gray-400">Experience</button>
+            </div>
+            <!-- Skills Grid with SVG Icons -->
+            <div id="skills-tab"
+                class="tab-content grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 justify-items-center transition duration-500 ease-in-out">
+
+
+                <!-- C++ -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++" class="w-12 h-12 mb-2">
+                    <span>C++</span>
+                </div>
+                <!-- HTML5 -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5" class="w-12 h-12 mb-2">
+                    <span>HTML5</span>
+                </div>
+
+                <!-- CSS3 -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS3" class="w-12 h-12 mb-2">
+                    <span>CSS3</span>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript" class="w-12 h-12 mb-2">
+                    <span>JavaScript</span>
+                </div>
+                <!-- React -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" class="w-12 h-12 mb-2">
+                    <span>React</span>
+                </div>
+                <div class="skill-item">
+                    <img src="assets/java.png" alt="Java" class="w-12 h-12 mb-2">
+                    <span>Java</span>
+                </div>
+                <div class="skill-item">
+                    <img src="assets/ch.png" alt="C Charp" class="w-12 h-12 mb-2">
+                    <span>C#</span>
+                </div>
+                <!-- Python -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" class="w-12 h-12 mb-2">
+                    <span>Python</span>
+                </div>
+
+                <!-- Django -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/django/092E20" alt="Django" class="w-12 h-12 mb-2">
+                    <span>Django</span>
+                </div>
+
+                <!-- GitHub -->
+                <div class="skill-item">
+                    <img src="assets/git.png" alt="Git" class="w-12 h-12 mb-2">
+                    <span>Git</span>
+                </div>
+
+
+                <!-- GitHub -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" class="w-12 h-12 mb-2">
+                    <span>GitHub</span>
+                </div>
+
+                <!-- Figma -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" class="w-12 h-12 mb-2">
+                    <span>Figma</span>
+                </div>
+
+                <!-- JWT -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/jsonwebtokens/000000" alt="JWT" class="w-12 h-12 mb-2">
+                    <span>JWT</span>
+                </div>
+
+                <!-- SQL -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="SQL" class="w-12 h-12 mb-2">
+                    <span>SQL</span>
+                </div>
+
+                <!-- PostgreSQL -->
+                <div class="skill-item">
+                    <img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" class="w-12 h-12 mb-2">
+                    <span>PostgreSQL</span>
+                </div>
+
+            </div>
+
+            <!-- Education Timeline -->
+            <div id="education-tab" class="tab-content hidden transition duration-500 ease-in-out">
+                <h2 class="text-4xl font-bold text-pink-400 mb-10" data-aos="flip-left">Educational Qualification</h2>
+                <div class="relative border-l-2 border-gray-700 pl-6 mb-10">
+                    <div class="absolute -left-4 bg-gray-900 rounded-full border-2 border-gray-700 w-8 h-8"></div>
+                    <h4 class="text-xl font-semibold">BSc. Engineering<span
+                            class="bg-red-600 text-xs rounded px-2 ml-2">Ongoing</span></h4>
+                    <p class="text-gray-400">Jashore University of Science and Technology</p>
+                    <p class="text-sm mt-2">Subject: Computer Science and Engineering<br>CGPA: 3.61/4.0</p>
+                </div>
+                <div class="relative border-l-2 border-gray-700 pl-6">
+                    <div class="absolute -left-4 bg-gray-900 rounded-full border-2 border-gray-700 w-8 h-8"></div>
+                    <div class="flex justify-between items-center">
+                        <p class="font-semibold">Higher Secondary School Certificate</p>
+                        <span class="bg-red-500 text-xs rounded px-2 py-1 ml-3">Completed</span>
+                    </div>
+                    <p class="text-sm mt-2">Gabkhali Magura United Degree College, Jashore.<br>CGPA: 4.58/5.0</p>
+                </div>
+                <div class="relative border-l-2 border-gray-700 pl-6">
+                    <div class="absolute -left-4 bg-gray-900 rounded-full border-2 border-gray-700 w-8 h-8"></div>
+                    <div class="flex justify-between items-center">
+                        <p class="font-semibold">Secondary School Certificate</p>
+                        <span class="bg-red-500 text-xs rounded px-2 py-1 ml-3">Completed</span>
+                    </div>
+                    <p class="text-sm mt-2">Dhakuria Protapkati High School, Jashore.<br>CGPA: 5.00/5.0</p>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div id="experience-tab" class="tab-content hidden transition duration-500 ease-in-out">
+                <h3 class="text-xl font-semibold mb-8">Experience</h3>
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-semibold items-center">Utshab Technology Ltd.</h4>
+                        <span class="bg-red-500 text-xs rounded px-2 py-1">Ongoing</span>
+                    </div>
+                    <p class="text-sm mt-2">Internship (04/10/2024 - 04/01/2025) → Junior Software Engineer (04/01/2025
+                        - Present)</p>
+                    <p class="text-sm mt-2">I started my journey at Utshab Technology Ltd. as a 3-month intern and later
+                        transitioned into a Junior Software Engineer role. I'm grateful for this growth opportunity and
+                        continuously expanding my expertise in Django REST Framework and React.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showTab(tabId, event) {
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            // Remove active styles from all tabs
+            tabLinks.forEach(tab => {
+                tab.classList.remove('border-b-2', 'border-red-500', 'font-semibold');
+                tab.classList.add('hover:text-gray-400');
+            });
+
+            // Add active styles to the clicked tab
+            event.currentTarget.classList.add('border-b-2', 'border-red-500', 'font-semibold');
+            event.currentTarget.classList.remove('hover:text-gray-400');
+
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            // Show the clicked tab content
+            document.getElementById(tabId).classList.remove('hidden');
+        }
+
+        // Initialize default active tab on page load
+        window.onload = () => {
+            document.getElementById('skills-tab').classList.remove('hidden');
+        };
+
+
+    </script>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-pink-400 mb-10" data-aos="flip-left">Let's Connect</h2>
+
+            <div class="flex flex-col md:flex-row md:justify-center md:gap-10 items-center">
+
+                <!-- Contact Info Card -->
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg w-full md:w-1/3 mb-10 md:mb-0">
+                    <div class="flex justify-center mb-4">
+                        <img src="assets/contact.png" alt="Profile"
+                            class="rounded-xl transition-transform transform hover:scale-105 duration-300 ease-in-out">
+                    </div>
+                    <h3 class="text-2xl text-white font-semibold mb-2">Joydip Das</h3>
+                    <p class="text-gray-400 mb-6">Full Stack Developer</p>
+                    <p class="text-gray-300 mb-6">"I'm a passionate developer ready to build impactful projects. Let's
+                        connect through social media or email!"</p>
+                    <div class="mt-6 flex justify-center gap-4">
+                        <a href="https://www.linkedin.com/in/joydip-das-469414249/"
+                            class="bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition duration-300 ease-in-out transform hover:scale-110">
+                            <img src="assets/linkedin.png" alt="LinkedIn" class="w-6 h-6">
+                        </a>
+                        <a href="https://wa.me/+8801995140040" target="_blank"
+                            class="bg-green-500 hover:bg-green-400 p-3 rounded-full transition duration-300 ease-in-out transform hover:scale-110">
+                            <img src="assets/whatsapp.png" alt="WhatsApp" class="w-6 h-6">
+                        </a>
+
+                        <a href="mailto:joydipd381@gmail.com"
+                            class="bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition duration-300 ease-in-out transform hover:scale-110">
+                            <img src="assets/email.png" alt="Email" class="w-6 h-6">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg w-full md:w-1/2">
+                    <form action="https://formsubmit.co/joydipd381@gmail.com" method="POST" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" name="name" placeholder="Your Name"
+                                class="w-full p-3 bg-gray-700 rounded-lg placeholder-gray-400 text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                                required>
+                            <input type="text" name="phone" placeholder="Phone Number"
+                                class="w-full p-3 bg-gray-700 rounded-lg placeholder-gray-400 text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                        </div>
+                        <input type="email" name="email" placeholder="Email"
+                            class="w-full p-3 bg-gray-700 rounded-lg placeholder-gray-400 text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                            required>
+                        <input type="text" name="subject" placeholder="Subject"
+                            class="w-full p-3 bg-gray-700 rounded-lg placeholder-gray-400 text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                            required>
+                        <textarea name="message" placeholder="Message"
+                            class="w-full p-3 bg-gray-700 rounded-lg placeholder-gray-400 text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                            rows="5" required></textarea>
+                        <button type="submit"
+                            class="w-full bg-indigo-600 hover:bg-indigo-500 p-3 rounded-lg text-gray-200 font-semibold transition duration-300 ease-in-out hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-gray-800">
+        <p>&copy; 2025 Joydip Das. All Rights Reserved.</p>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>
