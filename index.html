@@ -119,6 +119,7 @@
         function typeCharacter() {
             if (bioIndex < bioText.length) {
                 typingBio.textContent += bioText.charAt(bioIndex);
+                typingBio.style.fontSize = "1.5em"; // Increase the font size
                 bioIndex++;
                 setTimeout(typeCharacter, 50);
             } else {
@@ -608,9 +609,9 @@
                 <div class="relative border-l-2 border-gray-700 pl-6 mb-10">
                     <div class="absolute -left-4 bg-gray-900 rounded-full border-2 border-gray-700 w-8 h-8"></div>
                     <h4 class="text-xl font-semibold">BSc. Engineering<span
-                            class="bg-red-600 text-xs rounded px-2 ml-2">Ongoing</span></h4>
+                            class="bg-red-600 text-xs rounded px-2 ml-2">Completed</span></h4>
                     <p class="text-gray-400">Jashore University of Science and Technology</p>
-                    <p class="text-sm mt-2">Subject: Computer Science and Engineering<br>CGPA: 3.61/4.0</p>
+                    <p class="text-sm mt-2">Subject: Computer Science and Engineering<br>CGPA: 3.64/4.0</p>
                 </div>
                 <div class="relative border-l-2 border-gray-700 pl-6">
                     <div class="absolute -left-4 bg-gray-900 rounded-full border-2 border-gray-700 w-8 h-8"></div>
@@ -618,7 +619,7 @@
                         <p class="font-semibold">Higher Secondary School Certificate</p>
                         <span class="bg-red-500 text-xs rounded px-2 py-1 ml-3">Completed</span>
                     </div>
-                    <p class="text-sm mt-2">Gabkhali Magura United Degree College, Jashore.<br>CGPA: 4.58/5.0</p>
+                    <p class="text-sm mt-2">Gabkhali Magura United Degree College, Jashore.<br>CGPA: 4.58/5.00</p>
                 </div>
                 <div class="relative border-l-2 border-gray-700 pl-6">
                     <div class="absolute -left-4 bg-gray-900 rounded-full border-2 border-gray-700 w-8 h-8"></div>
@@ -626,7 +627,7 @@
                         <p class="font-semibold">Secondary School Certificate</p>
                         <span class="bg-red-500 text-xs rounded px-2 py-1 ml-3">Completed</span>
                     </div>
-                    <p class="text-sm mt-2">Dhakuria Protapkati High School, Jashore.<br>CGPA: 5.00/5.0</p>
+                    <p class="text-sm mt-2">Dhakuria Protapkati High School, Jashore.<br>CGPA: 5.00/5.00</p>
                 </div>
             </div>
 
